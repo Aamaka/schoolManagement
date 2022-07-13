@@ -15,5 +15,6 @@ public class Student {
     private String grade;
     private double totalFees;
     private double feesPaid;
+    private StudentType student;
 
 }
