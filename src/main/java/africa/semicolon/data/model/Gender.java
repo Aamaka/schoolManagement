@@ -1,5 +1,6 @@
 package africa.semicolon.data.model;
 
-public class Gender {
+public enum Gender {
+
 
 }
