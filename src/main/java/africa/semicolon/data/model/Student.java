@@ -21,7 +21,7 @@ public class Student {
     private double totalFees;
 
     @NonNull
-    private double feesPaid;
+    private double amountPaid;
 
     private String studentId;
 
@@ -37,4 +37,9 @@ public class Student {
     @NonNull
     private String email;
 
+    @NonNull
+    private String stateOfOrigin;
+
+    @NonNull
+    private String dob;
 }

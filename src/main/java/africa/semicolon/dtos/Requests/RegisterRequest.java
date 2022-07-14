@@ -18,4 +18,6 @@ public class RegisterRequest {
     private Gender gender;
     private String email;
     private String password;
+    private double amountPaid;
+
 }

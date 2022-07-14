@@ -1,5 +1,6 @@
 package africa.semicolon.services;
 
+import africa.semicolon.data.model.Student;
 import africa.semicolon.dtos.Requests.*;
 import africa.semicolon.dtos.Responses.*;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,11 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public RegisterResponse register(RegisterRequest request) {
+        Student student = new Student();
+        student.setName(request.getName());
+        student.setStateOfOrigin(request.getStateOfOrigin());
+        student.setDob(request.getDob());
+
         return null;
     }
 
