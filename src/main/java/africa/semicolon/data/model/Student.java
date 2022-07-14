@@ -34,4 +34,7 @@ public class Student {
     @NonNull
     private int age;
 
+    @NonNull
+    private String email;
+
 }
