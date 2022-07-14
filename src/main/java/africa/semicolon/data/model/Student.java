@@ -1,20 +1,22 @@
 package africa.semicolon.data.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.annotation.Id;
 
-
-@AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Data
 public class Student {
-
+    @NonNull
     private String name;
-    private int id;
+    @Id
+    private String id;
+    @NonNull
     private String grade;
     private double totalFees;
     private double feesPaid;
+    private String studentId;
+    private Gender gender;
     private StudentType student;
 
 }
