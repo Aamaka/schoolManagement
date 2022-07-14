@@ -1,5 +1,4 @@
 package africa.semicolon.controller;
-
 import africa.semicolon.dtos.Requests.RegisterRequest;
 import africa.semicolon.dtos.Responses.RegisterResponse;
 import africa.semicolon.services.StudentService;
