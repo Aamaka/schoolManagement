@@ -31,4 +31,7 @@ public class Student {
     @NonNull
     private StudentType student;
 
+    @NonNull
+    private int age;
+
 }
