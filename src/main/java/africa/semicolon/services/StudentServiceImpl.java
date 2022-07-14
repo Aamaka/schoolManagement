@@ -34,6 +34,7 @@ public class StudentServiceImpl implements StudentService{
         student.setStudentId(studentId);
 
         Student saved = studentRepository.save(student);
+
         RegisterResponse response = new RegisterResponse();
         response.setMessage(saved.getName() + " registration was successful!!!");
         response.setStudentId(saved.getStudentId());

@@ -9,11 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document("School")
 public class Student {
-    @NonNull
-    private String name;
+
 
     @Id
     private String id;
+    @NonNull
+    private String name;
 
     @NonNull
     private String grade;
