@@ -1,12 +1,19 @@
 package africa.semicolon.services;
 
 import africa.semicolon.data.model.Student;
+import africa.semicolon.data.repository.StudentRepository;
 import africa.semicolon.dtos.Requests.*;
 import africa.semicolon.dtos.Responses.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class StudentServiceImpl implements StudentService{
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Override
     public RegisterResponse register(RegisterRequest request) {
@@ -14,8 +21,25 @@ public class StudentServiceImpl implements StudentService{
         student.setName(request.getName());
         student.setStateOfOrigin(request.getStateOfOrigin());
         student.setDob(request.getDob());
+        student.setGrade(request.getGrade());
+        student.setAge(request.getAge());
+        student.setGender(request.getGender());
+        student.setEmail(request.getEmail());
+        student.setPassword(request.getPassword());
+        student.setAmountPaid(request.getAmountPaid());
 
-        return null;
+        String studentId = String.valueOf(UUID.randomUUID().getMostSignificantBits());
+        studentId = "ST"+ studentId.substring(1, 4);
+
+        student.setStudentId(studentId);
+
+        Student saved = studentRepository.save(student);
+        RegisterResponse response = new RegisterResponse();
+        response.setMessage(saved.getName() + " registration was successful!!!");
+        response.setStudentId(saved.getStudentId());
+
+
+        return response;
     }
 
     @Override

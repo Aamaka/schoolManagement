@@ -42,4 +42,6 @@ public class Student {
 
     @NonNull
     private String dob;
+
+    private String password;
 }
