@@ -7,6 +7,7 @@ import africa.semicolon.dtos.Responses.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -45,8 +46,15 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public LoginResponse login(LoginRequest request) {
+        Optional<Student> student = studentRepository.findById(request.getSchoolId());
+        if(student.isPresent()){
+            if(student.get().getPassword().equals(request.getPassword())){
+                LoginResponse response = new LoginResponse();
+                response.setMessage("Welcome back " + student.get().getName());
+            }throw new IllegalArgumentException("wrong detail");
+        }
 
-        return null;
+        throw new IllegalArgumentException("Student does not exist");
     }
 
     @Override
