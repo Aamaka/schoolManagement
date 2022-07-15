@@ -1,5 +1,7 @@
 package africa.semicolon.controller;
+import africa.semicolon.dtos.Requests.LoginRequest;
 import africa.semicolon.dtos.Requests.RegisterRequest;
+import africa.semicolon.dtos.Responses.LoginResponse;
 import africa.semicolon.dtos.Responses.RegisterResponse;
 import africa.semicolon.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,13 @@ public class StudentController {
     private StudentService service;
 
     @PostMapping("student/register")
-    public RegisterResponse register(@RequestBody RegisterRequest request){
+    public RegisterResponse register(@RequestBody RegisterRequest request) {
         return service.register(request);
+    }
+
+
+    @PostMapping("/student/login")
+    public LoginResponse login(@RequestBody LoginRequest request){
+        return service.login(request);
     }
 }

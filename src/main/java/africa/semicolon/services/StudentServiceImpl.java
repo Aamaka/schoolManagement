@@ -46,12 +46,14 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public LoginResponse login(LoginRequest request) {
-        Optional<Student> student = studentRepository.findById(request.getSchoolId());
+        Optional<Student> student = studentRepository.findStudentBySchoolId(request.getSchoolId());
         if(student.isPresent()){
             if(student.get().getPassword().equals(request.getPassword())){
                 LoginResponse response = new LoginResponse();
                 response.setMessage("Welcome back " + student.get().getName());
-            }throw new IllegalArgumentException("wrong detail");
+            }else {
+                throw new IllegalArgumentException("wrong detail");
+            }
         }
 
         throw new IllegalArgumentException("Student does not exist");
